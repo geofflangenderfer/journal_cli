@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+
+# whatever echo ~ evaluates to on your machine
+home=/home/g
+journal_file_location=$home/.journal/journal.md
+
+# update to nano, for example
+editor=nvim
+
+if test -f $journal_file_location
+then
+  todays_date_count=$(grep -c "# $(date +%m-%d-%y)" $journal_file_location) 
+else
+  # trigger the echo block if file doesn't exist
+  todays_date_count=0
+fi
+
+if [ "$todays_date_count" -eq 0 ]
+then
+  # journal template
+  echo -e "\n# $(date +%m-%d-%y)" >> $journal_file_location
+  echo -e "\n## Other" >> $journal_file_location
+  echo -e "\n## Iron Sharpens Iron" >> $journal_file_location
+  echo -e "\n## Recap\n" >> $journal_file_location
+fi
+
+
+# open journal wherever you are. Neat right?
+$editor $journal_file_location
+
+
+
+
