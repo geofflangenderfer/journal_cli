@@ -8,3 +8,10 @@ Makes the next entry easy.
 # moves journal to the local executable folder in ubuntu linux
 $ bash install.sh
 ```
+
+## Usage
+```bash
+# from any location
+$ journal
+```
+
